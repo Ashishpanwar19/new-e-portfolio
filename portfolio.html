@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Ashish Panwar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="profile">
+        <img src="image/ashish1.jpg" alt="Ashish Panwar">
+        <h1>Portfolio</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Vedious</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="Projects.html" class="active">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+     <!-- Statistics Section -->
+     <section class="statistics">
+      <div class="stat-item">
+        <h3>95%</h3>
+        <p>Accuracy in Iris Classification</p>
+      </div>
+      <div class="stat-item">
+        <h3>96%</h3>
+        <p>Accuracy in Phishing URL Detection</p>
+      </div>
+      <div class="stat-item">
+        <h3>87%</h3>
+        <p>Accuracy in Fraud Detection</p>
+      </div>
+    </section>
+    <section class="latest-projects">
+      <h2>Latest Projects</h2>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+        <button class="filter-btn" data-filter="web-development">Web Development</button>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1: Online Payment Fraud Detection -->
+        <div class="project-item" data-category="machine-learning">
+          <img src="image/yvesb6qq.png" alt="Online Payment Fraud Detection">
+          <div class="overlay">
+            <h3>Online Payment Fraud Detection</h3>
+            <p>Machine Learning</p>
+            <a href="https://github.com/Ashishpanwar19/online-payment-fraud-detection-with-api" target="_blank" class="btn">View Repository</a>
+          </div>
+        </div>
+
+        <!-- Project 2: Phishing URL Detection -->
+        <div class="project-item" data-category="machine-learning">
+          <img src="image/gwvyvquo.png" alt="Phishing URL Detection">
+          <div class="overlay">
+            <h3>Phishing URL Detection</h3>
+            <p>Machine Learning</p>
+            <a href="https://github.com/Ashishpanwar19/phising-url-detection" target="_blank" class="btn">View Repository</a>
+          </div>
+        </div>
+
+        <!-- Project 3: AI Chatbot -->
+        <div class="project-item" data-category="web-development">
+          <img src="image/aeyimlu1.png" alt="AI Chatbot">
+          <div class="overlay">
+            <h3>AI Chatbot</h3>
+            <p>Web Development</p>
+            <a href="https://github.com/Ashishpanwar19/nextjs-ai-chatbot" target="_blank" class="btn">View Repository</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Filter Projects
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        // Add active class to the clicked button
+        button.classList.add('active');
+
+        // Get the filter category
+        const filter = button.getAttribute('data-filter');
+
+        // Filter projects
+        projectItems.forEach((item) => {
+          const category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block'; // Show the project
+          } else {
+            item.style.display = 'none'; // Hide the project
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
